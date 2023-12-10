@@ -30,8 +30,8 @@ import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarModule, MatSnackB
 export class LoginComponent {
  
   constructor (private api:ApiLoginService, private router:Router,private msj: MatSnackBar){}
-  horizontalPosition: MatSnackBarHorizontalPosition = 'start';
-  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  horizontalPosition: MatSnackBarHorizontalPosition ='center';
+  verticalPosition: MatSnackBarVerticalPosition ='bottom'
 
   form: FormGroup = new FormGroup({
     email: new FormControl('',Validators.required),
