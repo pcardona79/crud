@@ -10,8 +10,8 @@ import { Observable } from 'rxjs';
 })
 export class ApiLoginService {
 
-  // url:string =" http://127.0.0.1:8000/api";
-  url:string ="https://inventapp.diplomadoisucomfamiliar.net/api";
+   url:string =" http://127.0.0.1:8000/api";
+  //url:string ="https://inventapp.diplomadoisucomfamiliar.net/api";
   constructor(private http:HttpClient) { }
 
 

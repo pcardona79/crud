@@ -1,2 +1,3 @@
 export interface responsePInterface{
-    id :string;}
+    id:string;
+}

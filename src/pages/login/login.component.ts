@@ -1,5 +1,5 @@
  
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule,Validators} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -27,9 +27,14 @@ import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarModule, MatSnackB
   styleUrl: './login.component.css'
 })
 
-export class LoginComponent {
- 
+export class LoginComponent   {
+  getToken() {  
+    return localStorage.getItem("token");
+  }
+
+
   constructor (private api:ApiLoginService, private router:Router,private msj: MatSnackBar){}
+
   horizontalPosition: MatSnackBarHorizontalPosition ='center';
   verticalPosition: MatSnackBarVerticalPosition ='bottom'
 
@@ -38,6 +43,7 @@ export class LoginComponent {
     password: new FormControl('',Validators.required),
   });
   
+
 
   //carga mensaje de validacion
   openSnackBar( mensaje: string) {
@@ -57,9 +63,10 @@ export class LoginComponent {
         let dataResponse:responseInterface=data; // para formar la respuesta y cargarla en pantalla 
         if ( dataResponse.access_token)
         {  //almaceno token
+          localStorage.removeItem("token");
           localStorage.setItem ("token",dataResponse.access_token);
-          sessionStorage.setItem ("token",dataResponse.access_token);
-          this.router.navigate(['home']); //navega a la pagina de inicio
+       
+          this.router.navigate(['']); //navega a la pagina de inicio
         }   },
         error => {
           this.openSnackBar("Usuario sin acceso");

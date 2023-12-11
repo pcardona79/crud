@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {PersonaComponent} from '../persona/persona.component';
 import { MatDialog } from '@angular/material/dialog';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -10,23 +10,26 @@ import {MatIconModule} from '@angular/material/icon';
 import { ApiPersonaService } from '../../app/services/api/api.persona.service';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
-import { HomeComponent } from "../home/home.component";
+// import { HomeComponent } from "../home/home.component";
 import {MatButtonModule} from '@angular/material/button';
 import { RouterLink,Router } from '@angular/router';
+import { mensajeService } from '../../app/services/api/mensaje.service';
 
 @Component({
     selector: 'app-listpersona',
     standalone: true,
     templateUrl: './listpersona.component.html',
     styleUrl: './listpersona.component.css',
-    imports: [MatButtonModule,MatInputModule, MatTableModule, MatToolbarModule, MatPaginatorModule, MatFormFieldModule, MatIconModule, HomeComponent]
+    imports: [MatButtonModule,MatInputModule, MatTableModule, MatToolbarModule, MatPaginatorModule, MatFormFieldModule, MatIconModule]
 })
-export class ListpersonaComponent {
+export class ListpersonaComponent implements OnInit {
 
   constructor(
     private _dialog: MatDialog  ,
     private personaService: ApiPersonaService, 
-    private router:Router 
+    private router:Router ,
+    private mensaje:mensajeService,
+
   ) {}
 
 
@@ -43,21 +46,20 @@ export class ListpersonaComponent {
 
 
 
-  ngOnInit(): void {
-    this.getPersonasList();
-    
+  ngOnInit()  {
+    this.getPersonasList();    
   }
 
-  Home()
-  {
-    this.router.navigate(['home']); 
-  }
+  // Home()
+  // {
+  //   this.router.navigate(['home']); 
+  // }
   openAddEditEmpForm() {
     const dialogRef = this._dialog.open(PersonaComponent);
     dialogRef.afterClosed().subscribe({
       next: (val) => {
         if (val) {
-          // this.getEmployeeList();
+          this.getPersonasList();
         }
       },
     });
@@ -72,20 +74,20 @@ export class ListpersonaComponent {
     dialogRef.afterClosed().subscribe({
       next: (val) => {
         if (val) {
-          //this.getEmployeeList();
+         this.getPersonasList();
         }
       },
     });
   }
 
-  deletePersona(id: number) {
-    // this._empService.deleteEmployee(id).subscribe({
-    //   next: (res) => {
-    //     this._coreService.openSnackBar('Employee deleted!', 'done');
-    //     this.getEmployeeList();
-    //   },
-    //   error: console.log,
-    // });
+  deletePersona(id: BigInteger) {
+   this.personaService.deletePersona(id).subscribe({
+      next: (res) => {
+         this.mensaje.openSnackBar("Registro Eliminado");
+         this.getPersonasList();
+       },
+       error: console.log,
+    });
   }
 
   getPersonasList() {
