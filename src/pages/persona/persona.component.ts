@@ -10,6 +10,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 
 import { personaInterface } from '../../app/modelos/personaInterface';
 import { ApiPersonaService } from '../../app/services/api/api.persona.service';
+import {MatButtonModule} from '@angular/material/button';
 
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
@@ -21,7 +22,7 @@ import { MatInputModule } from '@angular/material/input';
 @Component({
   selector: 'app-persona',
   standalone: true,
-  imports: [MatInputModule, MatRadioModule,MatDialogModule,  MatNativeDateModule ,MatFormFieldModule,MatSelectModule,FormsModule,MatDatepickerModule,CommonModule,ReactiveFormsModule],
+  imports: [MatButtonModule,MatInputModule, MatRadioModule,MatDialogModule,  MatNativeDateModule ,MatFormFieldModule,MatSelectModule,FormsModule,MatDatepickerModule,CommonModule,ReactiveFormsModule],
   templateUrl: './persona.component.html',
   styleUrl: './persona.component.css'
 })
@@ -29,8 +30,9 @@ import { MatInputModule } from '@angular/material/input';
 
 
 
-export class PersonaComponent {
-
+export class PersonaComponent   {
+ 
+ 
   // constructor(   private _dialogRef: MatDialogRef<PersonaComponent>,
   //   @Inject(MAT_DIALOG_DATA) public data: personaInterface 
   // ) {}
@@ -41,8 +43,7 @@ export class PersonaComponent {
     'Graduate',
     'Post Graduate',
   ];
-
-
+ 
   
   form: FormGroup = new FormGroup({
     id: new FormControl('',Validators.required),

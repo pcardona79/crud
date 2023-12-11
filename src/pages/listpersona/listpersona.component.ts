@@ -11,7 +11,7 @@ import { ApiPersonaService } from '../../app/services/api/api.persona.service';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 import { HomeComponent } from "../home/home.component";
-
+import {MatButtonModule} from '@angular/material/button';
 import { RouterLink,Router } from '@angular/router';
 
 @Component({
@@ -19,7 +19,7 @@ import { RouterLink,Router } from '@angular/router';
     standalone: true,
     templateUrl: './listpersona.component.html',
     styleUrl: './listpersona.component.css',
-    imports: [MatInputModule, MatTableModule, MatToolbarModule, MatPaginatorModule, MatFormFieldModule, MatIconModule, HomeComponent]
+    imports: [MatButtonModule,MatInputModule, MatTableModule, MatToolbarModule, MatPaginatorModule, MatFormFieldModule, MatIconModule, HomeComponent]
 })
 export class ListpersonaComponent {
 
@@ -34,7 +34,8 @@ export class ListpersonaComponent {
     'id',
     'nombre',
     'direccion',    
-    'telefono'  
+    'telefono' ,
+    'accion' 
   ];
   dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -44,6 +45,7 @@ export class ListpersonaComponent {
 
   ngOnInit(): void {
     this.getPersonasList();
+    
   }
 
   Home()
