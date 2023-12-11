@@ -5,7 +5,6 @@ import { Input, Component, Output, EventEmitter  } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 
- 
 @Component({
     selector: 'app-root',
     standalone: true,

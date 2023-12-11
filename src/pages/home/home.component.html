@@ -40,7 +40,6 @@
 
 <!-- </p>   -->
 
-
 <mat-sidenav-container class="container" >
 
     <!-- side-nav -->
@@ -53,17 +52,16 @@
   
       <mat-list>
   
-        <mat-list-item *ngFor="let item of links"> 
+      <mat-list-item *ngFor="let item of links"> 
        
         
             <!-- <a matLine [routerLink]="item.url">{{ item.name }}</a>   -->
-            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="OnLogin()">
+             <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="OnNavega(item.key)">
                 <mat-icon class="logo">{{item.key}}</mat-icon>
-              </button>
+              </button> 
 
   
         </mat-list-item> 
-    
   
       </mat-list>
   
@@ -88,7 +86,7 @@
         <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
           <mat-icon>favorite</mat-icon>
         </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="OnLogin()">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="OnNavega('')">
           <mat-icon>key</mat-icon>
         </button>
      

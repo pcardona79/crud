@@ -18,27 +18,33 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent {
 constructor  ( private router:Router ){}
-  OnLogin()
+  OnNavega(item:string)
   {
-    this.router.navigate(['']); //navega a la pagina de inicio
+    //navega a la pagina de inicio
+
+    switch ( item ) {
+      case '':
+        this.router.navigate(['']); 
+        break;
+      case 'people':
+        this.router.navigate(['getpersona']); 
+        break;
+    }
   }
 
- 
+   
   links = [
     {
       name: "Persona",
-      url: "Persona",
       key:"people"
     },
     {
-      name: "Agendas",
-      url: "Agendas",
+      name: "Agendas", 
       key:"book"
 
     },
     {
-      name: "Reportes",
-      url: "Reportes",
+      name: "Reportes",     
       key: "report"
 
     }
