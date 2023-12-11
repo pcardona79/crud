@@ -1,6 +1,7 @@
 
-<mat-toolbar color="primary">
-    <span center>Registro de Personal</span>
+<mat-toolbar  >
+  <mat-toolbar-row>
+    <span class="span">Registro de Personal</span>
     <span class="example-spacer"></span>
     <button   (click)="openAddEditEmpForm()">
         <mat-icon>note_add</mat-icon>  
@@ -8,6 +9,7 @@
     <!-- <button  (click)="Home()">
         <mat-icon>house</mat-icon>       
         </button> -->
+      </mat-toolbar-row>
  </mat-toolbar>
   
   
@@ -19,7 +21,7 @@
      <input matInput (keyup)="applyFilter($event)" placeholder="Ingrese valor " #input> 
     </mat-form-field>
   
-    <div class="table-container">
+    <div class="table-container x">
       <table mat-table [dataSource]="dataSource" matSort>
   
         <!-- ID Column -->

@@ -51,7 +51,7 @@ export class PersonaComponent implements OnInit  {
   }
   
   form: FormGroup = new FormGroup({
-    id: new FormControl('' ),
+    id: new FormControl(''),
     nombre: new FormControl('',Validators.required),
     direccion: new FormControl('',Validators.required),
     telefono: new FormControl('',Validators.required),
