@@ -9,9 +9,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { RouterLink,Router } from '@angular/router';
-import { MatRippleModule } from '@angular/material/core';
+import {  MatRippleModule } from '@angular/material/core';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
  
 
 @Component({
@@ -19,7 +20,7 @@ import {MatListModule} from '@angular/material/list';
     standalone: true,
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    imports: [CommonModule, RouterOutlet, LoginComponent,HttpClientModule,MatIconModule,MatSidenavModule,MatButtonModule,MatToolbarModule,MatRippleModule,RouterLink,MatListModule]
+    imports: [CommonModule,RouterOutlet, LoginComponent,HttpClientModule,MatIconModule,MatSidenavModule,MatButtonModule,MatToolbarModule,MatRippleModule,RouterLink,MatListModule,MatMomentDateModule ]
 })
 
 export class AppComponent {

@@ -11,9 +11,9 @@ import { Observable } from 'rxjs';
 })
 export class ApiPersonaService {
 
-   url:string ="http://127.0.0.1:8000/api";
+   //url:string ="http://127.0.0.1:8000/api";
   //url:string ="https://inventapp.diplomadoisucomfamiliar.net/api";
-  //url:string="https://backend-laravel.diplomadoisucomfamiliar.net/api";
+  url:string="https://backend-laravel.diplomadoisucomfamiliar.net/api";
   constructor(private http:HttpClient) { }
 
   /* método para listar todas las personas*/

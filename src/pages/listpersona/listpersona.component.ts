@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {PersonaComponent} from '../persona/persona.component';
 import { MatDialog } from '@angular/material/dialog';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -7,14 +6,15 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import {MatIconModule} from '@angular/material/icon';
-import { ApiPersonaService } from '../../app/services/api/api.persona.service';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
-// import { HomeComponent } from "../home/home.component";
 import {MatButtonModule} from '@angular/material/button';
 import { RouterLink,Router } from '@angular/router';
-import { mensajeService } from '../../app/services/api/mensaje.service';
 
+import {PersonaComponent} from '../persona/persona.component';
+
+import { mensajeService } from '../../app/services/api/mensaje.service';
+import { ApiPersonaService } from '../../app/services/api/api.persona.service';
 @Component({
     selector: 'app-listpersona',
     standalone: true,
