@@ -34,12 +34,11 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
-      "architect": {
-        
+      "architect": {        
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/crud",
+            "outputPath": "dist",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
